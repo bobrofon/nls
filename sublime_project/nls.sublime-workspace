@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"Lock",
+				"LockType	enum"
+			],
+			[
+				"Loc",
+				"LockType	enum"
+			],
+			[
 				"uid",
 				"uidMutex	mutex_shared_ptr_t"
 			],
@@ -159,6 +167,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/bobrofon/git/nls/interfaces/lock_lib/lock_types/lock_types_def.hpp",
+			"settings":
+			{
+				"buffer_size": 1819,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/bobrofon/git/nls/interfaces/lock_lib/lock_types/lock_types_operation.hpp",
+			"settings":
+			{
+				"buffer_size": 218,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -184,6 +208,8 @@
 	},
 	"file_history":
 	[
+		"/usr/include/c++/4.7.2/cwchar",
+		"/home/bobrofon/.config/sublime-text-2/Packages/SublimeClang/SublimeClang.sublime-settings",
 		"/home/bobrofon/git/nls/interfaces/lock_lib/lock_types/lock_types_def.hpp",
 		"/home/bobrofon/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/bobrofon/git/nls/sublime_project/nls.sublime-project",
@@ -272,7 +298,6 @@
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/client_api/lock_query_interface.hpp",
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/remote/server/CMakeLists.txt",
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/remote/server/echo_srv.cpp",
-		"/home/bobrofon/.config/sublime-text-2/Packages/SublimeClang/SublimeClang.sublime-settings",
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/remote/server/remote_query.hpp",
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/local_b.sublime-project",
 		"/home/bobrofon/svn/lockmanager/branches/b_125_385/local_b.sublime-workspace",
@@ -348,8 +373,62 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/bobrofon/git/nls/interfaces/lock_lib/lock_types/lock_types_def.hpp",
+					"settings":
+					{
+						"buffer_size": 1819,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1788,
+								1735
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 702.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/bobrofon/git/nls/interfaces/lock_lib/lock_types/lock_types_operation.hpp",
+					"settings":
+					{
+						"buffer_size": 218,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								76,
+								76
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
