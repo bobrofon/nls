@@ -11,7 +11,7 @@ inline std::ostream &operator<<(std::ostream &_stream, const LockLib::LockTypes:
 
 #include <istream>
 #include <string>
-inline std::istream &operator>>(std::istream &_stream, LockLib::LockTypes::LockType _type) {
+inline std::istream &operator>>(std::istream &_stream, LockLib::LockTypes::LockType &_type) {
 	std::string typeName;
 	
 	if (! (_stream >> typeName)) {

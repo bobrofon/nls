@@ -5,7 +5,7 @@ namespace {
 
 using namespace LockLib::LockTypes;
 
-TEST(LockType, validLockType) {
+TEST(LockTypeTest, validLockType) {
 	EXPECT_TRUE(validLockType(EX));
 	EXPECT_TRUE(validLockType(PW));
 	EXPECT_TRUE(validLockType(PR));
@@ -16,7 +16,7 @@ TEST(LockType, validLockType) {
 	EXPECT_FALSE(validLockType(static_cast<LockType> (-1)));
 }
 
-TEST(LockType, typeToString) {
+TEST(LockTypeTest, typeToString) {
 	EXPECT_STREQ("EX", typeToString(EX));
 	EXPECT_STREQ("PW", typeToString(PW));
 	EXPECT_STREQ("PR", typeToString(PR));
@@ -27,7 +27,7 @@ TEST(LockType, typeToString) {
 	EXPECT_STREQ("UNDEFINED", typeToString(static_cast<LockType> (-1)));
 }
 
-TEST(LockType, stringToType) {
+TEST(LockTypeTest, stringToType) {
 	EXPECT_EQ(EX, stringToType("EX"));
 	EXPECT_EQ(PW, stringToType("PW"));
 	EXPECT_EQ(PR, stringToType("PR"));
