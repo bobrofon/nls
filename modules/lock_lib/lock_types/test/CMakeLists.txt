@@ -1,13 +1,17 @@
 cmake_minimum_required(VERSION 2.8)
 
 set(LOCK_TYPES_TEST_ROOT "lock_lib/lock_types")
+set(LOCK_TYPES_TEST_SRC_DIR "${NLS_ROOT}/modules/${LOCK_TYPES_TEST_ROOT}/test")
 
 set(LOCK_TYPES_TEST_SRC
-	lock_types_def_test_case.cpp
+	${LOCK_TYPES_TEST_SRC_DIR}/lock_types_def_test_case.cpp
 )
 
-set_source_files_properties(${LOCK_TYPES_TEST_SRC} PROPERTIES COMPILE_FLAGS "${CXXFLAGS}")
+set(GLOBAL_TEST_SRC ${GLOBAL_TEST_SRC}
+	${LOCK_TYPES_TEST_SRC}
+)
 
-add_library(lock_types_test STATIC ${LOCK_TYPES_TEST_SRC})
+include_directories("${NLS_ROOT}/interfaces/${LOCK_TYPES_TEST_ROOT}")
 
-include_directories("${NLS_ROOT}/interfaces/${LOCK_TYPES_TEST_ROOT}" ${GTEST_INCLUDE_DIR})
+add_executable(run_lock_types_test ${LOCK_TYPES_TEST_SRC})
+target_link_libraries(run_lock_types_test ${GTEST_BOTH_LIBRARIES})
