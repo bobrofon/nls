@@ -5,6 +5,7 @@
 #include "lock_def.hpp"
 
 namespace LockLib {
+namespace LockLogic {
 
 class LockTypeSet {
 public:
@@ -36,11 +37,13 @@ private:
 	lock_count_t m_nl;
 };
 
+} /* namespace LockLogic */
 } /* namespace LockLib */
 
 // Implimentation.
 
 namespace LockLib {
+namespace LockLogic {
 
 LockTypeSet::LockTypeSet()
 	: m_ex(0),
@@ -122,7 +125,7 @@ inline LockTypeSet &LockTypeSet::operator+=(const LockTypeSet &_src) {
 	m_pw += _src.m_pw;
 	m_pr += _src.m_pr;
 	m_cw += _src.m_cw;
-	m_cr += _src.m_cw;
+	m_cr += _src.m_cr;
 	m_nl += _src.m_nl;
 
 	return *this;
@@ -133,7 +136,7 @@ inline LockTypeSet &LockTypeSet::operator-=(const LockTypeSet &_src) {
 	m_pw -= _src.m_pw;
 	m_pr -= _src.m_pr;
 	m_cw -= _src.m_cw;
-	m_cr -= _src.m_cw;
+	m_cr -= _src.m_cr;
 	m_nl -= _src.m_nl;
 
 	return *this;
@@ -168,7 +171,7 @@ inline void LockTypeSet::clear() {
 
 inline bool LockTypeSet::compatible(const LockTypeSet &_lhs, const LockTypeSet &_rhs) {
 	for (LockType lType = LockTypes::EX; LockTypes::validLockType(lType); ++lType) {
-		for (LockType rType = LockTypes::EX; LockTypes::validLockType(rType); ++lType) {
+		for (LockType rType = LockTypes::EX; LockTypes::validLockType(rType); ++rType) {
 			if (_lhs[lType] && _rhs[rType] && !LockTypes::compatible(lType, rType)) {
 				return false;
 			}
@@ -178,6 +181,7 @@ inline bool LockTypeSet::compatible(const LockTypeSet &_lhs, const LockTypeSet &
 	return true;
 }
 
+} /* LockLogic */
 } /* namespace LockLib */
 
 #endif /* LOCK_TYPE_SET_HPP_ */
