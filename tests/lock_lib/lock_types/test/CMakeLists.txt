@@ -13,7 +13,5 @@ set(GLOBAL_TEST_SRC ${GLOBAL_TEST_SRC}
 	${LOCK_TYPES_TEST_SRC}
 )
 
-include_directories("${NLS_ROOT}/interfaces/${LOCK_TYPES_TEST_ROOT}")
-
 add_executable(run_lock_types_test ${LOCK_TYPES_TEST_SRC})
 target_link_libraries(run_lock_types_test ${GTEST_BOTH_LIBRARIES})

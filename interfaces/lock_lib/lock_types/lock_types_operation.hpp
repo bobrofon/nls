@@ -2,6 +2,7 @@
 #define LOCK_TYPES_OPERATION_HPP_
 
 #include "lock_types_def.hpp"
+#include "utils/debug.hpp"
 
 /**
  * Matrix of lock types compatibility.
@@ -32,6 +33,8 @@ namespace LockTypes {
  * See matrix of lock types compatibility.
  */
 inline bool compatible(const LockType _lhs, const LockType _rhs) {
+	NLS_ASSERT(validLockType(_lhs) && validLockType(_rhs));
+
 	if (_lhs == NL || _rhs == NL) {
 		return true;
 	} else if (_lhs == EX || _rhs == EX) {
@@ -59,6 +62,7 @@ inline bool compatible(const LockType _lhs, const LockType _rhs) {
  * See matrix of lock types union.
  */
 inline LockLib::LockTypes::LockType operator+(const LockLib::LockTypes::LockType _lhs, const LockLib::LockTypes::LockType _rhs) {
+	NLS_ASSERT(validLockType(_lhs) && validLockType(_rhs));
 
 	if (_lhs == LockLib::LockTypes::EX || _rhs == LockLib::LockTypes::EX) {
 		return LockLib::LockTypes::EX;
@@ -84,6 +88,8 @@ inline LockLib::LockTypes::LockType operator+(const LockLib::LockTypes::LockType
  * Return next lock type or COUNT, if end of valid type values.
  */
 inline LockLib::LockTypes::LockType &operator++(LockLib::LockTypes::LockType &_type) {
+	NLS_ASSERT(LockLib::LockTypes::EX <=_type && _type <= LockLib::LockTypes::COUNT);
+
 	switch (_type) {
 	case LockLib::LockTypes::EX:
 		_type = LockLib::LockTypes::PW;

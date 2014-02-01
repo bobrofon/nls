@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <sstream>
-#include "lock_types_io.hpp"
+#include "lock_lib/lock_types/lock_types_io.hpp"
 
 namespace {
 

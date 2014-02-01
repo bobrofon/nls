@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "lock_types_operation.hpp"
+#include "lock_lib/lock_types/lock_types_operation.hpp"
 
 namespace {
 

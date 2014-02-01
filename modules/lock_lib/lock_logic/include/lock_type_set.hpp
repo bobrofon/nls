@@ -1,8 +1,9 @@
 #ifndef LOCK_TYPE_SET_HPP_
 #define LOCK_TYPE_SET_HPP_
 
-#include "lock_types.hpp"
+#include "lock_lib/lock_types/lock_types.hpp"
 #include "lock_def.hpp"
+#include "utils/debug.hpp"
 
 namespace LockLib {
 namespace LockLogic {
@@ -59,7 +60,9 @@ LockTypeSet::LockTypeSet(const LockType _type)
 	  m_pr(_type == LockTypes::PR ? 1 : 0),
 	  m_cw(_type == LockTypes::CW ? 1 : 0),
 	  m_cr(_type == LockTypes::CR ? 1 : 0),
-	  m_nl(_type == LockTypes::NL ? 1 : 0) {}
+	  m_nl(_type == LockTypes::NL ? 1 : 0) {
+		NLS_ASSERT(LockTypes::validLockType(_type));
+	}
 
 LockTypeSet::LockTypeSet(const LockTypeSet &_src)
 	: m_ex(_src.m_ex),
@@ -83,6 +86,8 @@ LockTypeSet &LockTypeSet::operator=(const LockTypeSet &_src) {
 LockTypeSet::~LockTypeSet() {}
 
 inline lock_count_t &LockTypeSet::operator[](const LockType _type) {
+	NLS_ASSERT(LockTypes::validLockType(_type));
+
 	switch (_type) {
 	case LockTypes::EX:
 		return m_ex;
@@ -102,6 +107,8 @@ inline lock_count_t &LockTypeSet::operator[](const LockType _type) {
 }
 
 inline lock_count_t LockTypeSet::operator[](const LockType _type) const {
+	NLS_ASSERT(LockTypes::validLockType(_type));
+
 	switch (_type) {
 	case LockTypes::EX:
 		return m_ex;
@@ -138,6 +145,14 @@ inline LockTypeSet &LockTypeSet::operator-=(const LockTypeSet &_src) {
 	m_cw -= _src.m_cw;
 	m_cr -= _src.m_cr;
 	m_nl -= _src.m_nl;
+
+	NLS_ASSERT(
+		   m_ex >= 0
+		&& m_pw >= 0
+		&& m_pr >= 0
+		&& m_cw >= 0
+		&& m_cr >= 0
+		&& m_nl >= 0);
 
 	return *this;
 }
