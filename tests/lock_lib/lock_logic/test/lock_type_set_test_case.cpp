@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "lock_type_set.hpp"
+#include "lock_lib/lock_logic/lock_type_set.hpp"
 
 using namespace LockLib::LockLogic;
 using namespace LockLib::LockTypes;

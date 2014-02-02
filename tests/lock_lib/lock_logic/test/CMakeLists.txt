@@ -5,6 +5,7 @@ set(LOCK_LOGIC_TEST_SRC_DIR "${NLS_TESTS_DIR}/${LOCK_LOGIC_TEST_ROOT}/test")
 
 set(LOCK_LOGIC_TEST_SRC
 	${LOCK_LOGIC_TEST_SRC_DIR}/lock_type_set_test_case.cpp
+	${LOCK_LOGIC_TEST_SRC_DIR}/client_info_test_case.cpp
 )
 
 set(GLOBAL_TEST_SRC ${GLOBAL_TEST_SRC}
@@ -14,4 +15,4 @@ set(GLOBAL_TEST_SRC ${GLOBAL_TEST_SRC}
 include_directories("${NLS_ROOT}/modules/${LOCK_LOGIC_TEST_ROOT}/include")
 
 add_executable(run_lock_logic_test ${LOCK_LOGIC_TEST_SRC})
-target_link_libraries(run_lock_logic_test ${GTEST_BOTH_LIBRARIES})
+target_link_libraries(run_lock_logic_test ${GTEST_BOTH_LIBRARIES} ${Boost_LIBRARIES})

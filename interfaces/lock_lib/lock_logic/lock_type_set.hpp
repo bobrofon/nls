@@ -2,11 +2,12 @@
 #define LOCK_TYPE_SET_HPP_
 
 #include "lock_lib/lock_types/lock_types.hpp"
-#include "lock_def.hpp"
 #include "utils/debug.hpp"
 
 namespace LockLib {
 namespace LockLogic {
+
+typedef /*unsigned*/ int lock_count_t; // For lock count in LockTypeSet.
 
 class LockTypeSet {
 public:
