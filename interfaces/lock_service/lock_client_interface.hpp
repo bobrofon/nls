@@ -17,7 +17,8 @@ public:
 	virtual LockQueryInterface *getLockQuery(const query_t &_query) = 0;
 };
 
-LockClientInterface *newLockClient(int _eid = 0);
+LockClientInterface *newLockClient();
+LockClientInterface *newLockClient(int _eid);
 
 } /* namespace LockService */
 

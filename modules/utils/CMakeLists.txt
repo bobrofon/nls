@@ -14,6 +14,7 @@ set_source_files_properties(${UTILS_SRC} PROPERTIES COMPILE_FLAGS "${CXXFLAGS}")
 
 include_directories(${Boost_INCLUDE_DIRS})
 include_directories("include")
+include_directories("../../interfaces")
 
 add_library(utils STATIC ${UTILS_SRC})
 

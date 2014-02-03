@@ -11,11 +11,11 @@ typedef boost::asio::ip::tcp::endpoint endpoint_t;
 
 class ClientInfo {
 public:
-	ClientInfo(const client_id_t _clientId, const client_id_t _clientEId, const endpoint_t &_endpoint);
-	ClientInfo(const client_id_t _clientId, const endpoint_t &_endpoint);
-	ClientInfo(const ClientInfo &_src);
-	ClientInfo &operator=(const ClientInfo &_src);
-	~ClientInfo();
+	inline ClientInfo(const client_id_t _clientId, const client_id_t _clientEId, const endpoint_t &_endpoint);
+	inline ClientInfo(const client_id_t _clientId, const endpoint_t &_endpoint);
+	inline ClientInfo(const ClientInfo &_src);
+	inline ClientInfo &operator=(const ClientInfo &_src);
+	inline ~ClientInfo();
 
 	inline client_id_t getId() const;
 	inline client_id_t getEId() const;
@@ -36,16 +36,16 @@ private:
 namespace LockLib {
 namespace LockLogic {
 
-ClientInfo::ClientInfo(const client_id_t _clientId, const client_id_t _clientEId, const endpoint_t &_endpoint)
+inline ClientInfo::ClientInfo(const client_id_t _clientId, const client_id_t _clientEId, const endpoint_t &_endpoint)
 	: clientId(_clientId), clientEId(_clientEId), endpoint(_endpoint) {}
 
-ClientInfo::ClientInfo(const client_id_t _clientId, const endpoint_t &_endpoint)
+inline ClientInfo::ClientInfo(const client_id_t _clientId, const endpoint_t &_endpoint)
 	: clientId(_clientId), clientEId(_clientId), endpoint(_endpoint) {}
 
-ClientInfo::ClientInfo(const ClientInfo &_src)
+inline ClientInfo::ClientInfo(const ClientInfo &_src)
 	: clientId(_src.clientId), clientEId(_src.clientEId), endpoint(_src.endpoint) {}
 
-ClientInfo &ClientInfo::operator=(const ClientInfo &_src) {
+inline ClientInfo &ClientInfo::operator=(const ClientInfo &_src) {
 	clientId = _src.clientId;
 	clientEId = _src.clientEId;
 	endpoint = _src.endpoint;
@@ -53,7 +53,7 @@ ClientInfo &ClientInfo::operator=(const ClientInfo &_src) {
 	return *this;
 }
 
-ClientInfo::~ClientInfo() {}
+inline ClientInfo::~ClientInfo() {}
 
 inline client_id_t ClientInfo::getId() const {
 	return clientId;

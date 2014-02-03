@@ -3,6 +3,8 @@
 #include <boost/property_tree/ini_parser.hpp>
 
 GlobalConfig::GlobalConfig(const std::string &_path) {
+	m_defaultStr["client.address"] = "127.0.0.1";
+
 	if (boost::filesystem::exists(_path)) {
 		boost::property_tree::ini_parser::read_ini(_path, m_config);
 	}
