@@ -1,2 +1,0 @@
-/usr/bin/ar cr libnls.a  CMakeFiles/nls.dir/src/net_synchronize.cpp.o CMakeFiles/nls.dir/src/lock_client.cpp.o
-/usr/bin/ranlib libnls.a

@@ -1,2 +1,0 @@
-/home/bobrofon/git/nls/modules/lock_service/build/CMakeFiles/nls.dir
-/home/bobrofon/git/nls/modules/lock_service/build/utils/CMakeFiles/utils.dir
