@@ -1,0 +1,2 @@
+g++ tst.cpp libnls.a utils/libutils.a -lboost_system -lboost_filesystem -lboost_thread -lpthread -lboost_date_time -lrt
+

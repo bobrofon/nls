@@ -1,0 +1,2 @@
+break LockService::LockClient::registerClient()
+
