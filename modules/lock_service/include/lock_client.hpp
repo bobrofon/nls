@@ -22,8 +22,8 @@ private:
 	void registerClient();
 	void registerClient(int _eid);
 
-	NetSynchronize m_sync;
-	soci::session m_db;
+	boost::shared_ptr<NetSynchronize> m_sync;
+	boost::shared_ptr<soci::session> m_db;
 	boost::shared_ptr<LockLib::LockLogic::ClientInfo> m_clientInfo;
 };
 

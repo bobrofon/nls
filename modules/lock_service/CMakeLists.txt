@@ -9,6 +9,7 @@ find_package(Threads REQUIRED)
 set(NET_SYNCHRONIZE_SRC
 	"src/net_synchronize.cpp"
 	"src/lock_client.cpp"
+	"src/lock_query.cpp"
 )
 
 if(UNIX AND NOT APPLE)
@@ -26,4 +27,4 @@ include_directories("/usr/include/mysql")
 
 add_library(nls STATIC ${NET_SYNCHRONIZE_SRC})
 
-target_link_libraries(nls utils ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(nls utils ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} soci_core soci_mysql)

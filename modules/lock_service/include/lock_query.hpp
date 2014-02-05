@@ -14,6 +14,7 @@ namespace LockService {
 class LockQuery : public LockQueryInterface {
 public:
 	LockQuery(
+			int _id,
 			int _eid,
 			std::map<std::string, LockLib::LockTypes::LockType> _resources,
 			boost::shared_ptr<NetSynchronize> _sync,
@@ -29,6 +30,7 @@ private:
 	boost::shared_ptr<NetSynchronize> m_sync;
 	std::map<std::string, LockLib::LockTypes::LockType> m_resources;
 	int m_eid;
+	int m_id;
 };
 
 } /* namespace LockService */

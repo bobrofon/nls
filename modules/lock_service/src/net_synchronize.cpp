@@ -48,10 +48,12 @@ bool NetSynchronize::timedWait(time_t /*_timeout*/) {
 }
 
 void NetSynchronize::notify(const boost::asio::ip::tcp::endpoint &_endpoint) {
-	io_service ioService;
-	tcp::socket socket(ioService);
-	socket.connect(_endpoint);
-	socket.close();
+	try {
+		io_service ioService;
+		tcp::socket socket(ioService);
+		socket.connect(_endpoint);
+		socket.close();
+	} catch (...) {}
 }
 
 void NetSynchronize::run() {
