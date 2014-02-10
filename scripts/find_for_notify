@@ -1,0 +1,3 @@
+SELECT ip, port
+FROM nls_db.clients JOIN nls_db.locks ON nls_db.clients.eid = nls_db.locks.eid
+WHERE nls_db.locks.active = 0 AND nls_db.locks.name = "ololo";
